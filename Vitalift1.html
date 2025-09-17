@@ -1,0 +1,1062 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrivital Herbalife - Nutrición y Bienestar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header y Navegación */
+        header {
+            background: linear-gradient(135deg, #2c7744, #1e5631);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: #ffcc00;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover, 
+        nav ul li a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Portada - Ajustada para mostrar el letrero */
+        .cover {
+            height: 500px;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
+                url('https://i.postimg.cc/QBxGS6kS/Portada.jpg') center 30%/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .cover-content {
+            max-width: 800px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .cover h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .cover p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: #333;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #ffd633;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Secciones */
+        .section {
+            padding: 60px 0;
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c7744;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Productos */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-img {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #f9f9f9;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+            padding: 15px;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: #2c7744;
+            font-size: 18px;
+            min-height: 54px;
+        }
+        
+        .product-info .description {
+            margin-bottom: 15px;
+            color: #666;
+            flex-grow: 1;
+            font-size: 14px;
+        }
+        
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .add-to-cart {
+            padding: 8px 15px;
+            background-color: #2c7744;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #1e5631;
+        }
+        
+        .view-details {
+            color: #2c7744;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .view-details:hover {
+            color: #1e5631;
+            text-decoration: underline;
+        }
+        
+        /* Desayunos */
+        .breakfast-package {
+            background: linear-gradient(135deg, #f1f8e9, #e8f5e9);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+        }
+        
+        .package-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .package-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+        
+        .package-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .package-info {
+            padding: 40px 30px 40px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .package-info h3 {
+            font-size: 28px;
+            color: #2c7744;
+            margin-bottom: 20px;
+        }
+        
+        .package-info .description {
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .package-includes {
+            margin-bottom: 25px;
+        }
+        
+        .package-includes h4 {
+            color: #2c7744;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .package-includes ul {
+            list-style-type: none;
+        }
+        
+        .package-includes li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .package-includes li:before {
+            content: "✓";
+            color: #2c7744;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .breakfast-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .breakfast-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .breakfast-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .breakfast-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .breakfast-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .breakfast-item:hover .breakfast-image img {
+            transform: scale(1.05);
+        }
+        
+        .breakfast-details {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .breakfast-details h3 {
+            color: #2c7744;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        /* Contacto */
+        .contact-section {
+            background-color: #e8f5e9;
+            padding: 60px 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: #2c7744;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-detail i {
+            font-size: 20px;
+            color: #2c7744;
+            margin-right: 15px;
+            width: 30px;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+        }
+        
+        /* Recetas */
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .recipe-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .recipe-img {
+            height: 200px;
+            background-color: #ffebee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .recipe-img i {
+            font-size: 64px;
+            color: #d32f2f;
+        }
+        
+        .recipe-info {
+            padding: 20px;
+        }
+        
+        /* Actualizaciones */
+        .updates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .update-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .update-card h3 {
+            color: #2c7744;
+            margin-bottom: 15px;
+        }
+        
+        .update-date {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c7744, #1e5631);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-section p, 
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            font-size: 20px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px;
+            }
+            
+            .cover {
+                height: 400px;
+                background-position: center 25%;
+            }
+            
+            .cover h1 {
+                font-size: 36px;
+            }
+            
+            .cover p {
+                font-size: 18px;
+            }
+            
+            .cover-content {
+                padding: 15px;
+                margin: 0 10px;
+            }
+            
+            .package-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .package-info {
+                padding: 30px;
+            }
+            
+            .product-info h3 {
+                min-height: auto;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>Nutrivital Herbalife</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-section="home">Inicio</a></li>
+                    <li><a href="#" class="nav-link" data-section="products">Productos</a></li>
+                    <li><a href="#" class="nav-link" data-section="breakfasts">Desayunos</a></li>
+                    <li><a href="#" class="nav-link" data-section="recipes">Recetas</a></li>
+                    <li><a href="#" class="nav-link" data-section="contact">Contacto</a></li>
+                    <li><a href="#" class="nav-link" data-section="updates">Actualizaciones</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Portada (Sección Home) -->
+    <section id="home" class="section active">
+        <div class="cover">
+            <div class="cover-content">
+                <h1>Transforma tu vida con nutrición equilibrada</h1>
+                <p>Descubre los productos Herbalife que te ayudarán a alcanzar tus objetivos de salud y bienestar</p>
+                <a href="#" class="btn" id="view-products-btn">Ver Productos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <main class="container">
+        <!-- Sección de Productos -->
+        <section id="products" class="section">
+            <div class="section-title">
+                <h2>Nuestros Productos</h2>
+                <p>Descubre nuestra gama de productos nutricionales de alta calidad</p>
+            </div>
+            
+            <div class="products-grid" id="products-container">
+                <!-- Los productos se cargarán dinámicamente con JavaScript -->
+            </div>
+        </section>
+
+        <!-- Sección de Desayunos -->
+        <section id="breakfasts" class="section">
+            <div class="section-title">
+                <h2>Nuestras Opciones de Desayuno</h2>
+                <p>Descubre nuestras deliciosas y nutritivas opciones para comenzar tu día con energía</p>
+            </div>
+
+            <!-- Paquete de Desayuno -->
+            <div class="breakfast-package">
+                <div class="package-content">
+                    <div class="package-image">
+                        <img src="https://i.postimg.cc/3xXbF0wv/pp-bs-emea.jpg" alt="Paquete de Desayuno Saludable">
+                    </div>
+                    <div class="package-info">
+                        <h3>Paquete de Desayuno Saludable</h3>
+                        <p class="description">El paquete de Desayuno Saludable ofrece una línea de productos diseñados para apoyar tu camino hacia una mejor nutrición. Con este paquete, no tendrás que preocuparte por decidir qué productos individuales comprar. ¡Los hemos seleccionado para ti!</p>
+                        
+                        <div class="package-includes">
+                            <h4>El paquete incluye:</h4>
+                            <ul>
+                                <li>1 x Batido Fórmula 1 - Alimento Equilibrado</li>
+                                <li>1 x Bebida instantánea de extracto de té con plantas aromáticas - Original</li>
+                                <li>1 x Concentrado herbal aloe – Mango</li>
+                            </ul>
+                        </div>
+                        
+                        <p class="description">Al elegir el paquete de Desayuno Saludable, ahorrarás tiempo y esfuerzo sabiendo que estás tomando una decisión inteligente en tu viaje de nutrición y bienestar.</p>
+                        
+                        <a href="#" class="btn">Solicitar Paquete</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galería de Desayunos -->
+            <div class="section-title">
+                <h3>Ideas de Desayunos</h3>
+                <p>Inspírate con estas deliciosas opciones para tu desayuno</p>
+            </div>
+
+            <div class="breakfast-gallery">
+                <div class="breakfast-item">
+                    <div class="breakfast-image">
+                        <img src="https://i.postimg.cc/cHyR9X51/Imagen-de-Whats-App-2025-09-12-a-las-12-17-57-ac29a952.jpg" alt="Malteada preparada">
+                    </div>
+                    <div class="breakfast-details">
+                        <h3>Malteada Nutritiva</h3>
+                        <p>Deliciosa malteada preparada con productos Herbalife para una nutrición completa.</p>
+                    </div>
+                </div>
+                
+                <div class="breakfast-item">
+                    <div class="breakfast-image">
+                        <img src="https://i.postimg.cc/dtH8PqSx/Imagen-de-Whats-App-2025-09-12-a-las-13-33-06-96762abc.jpg" alt="Té quema grasa">
+                    </div>
+                    <div class="breakfast-details">
+                        <h3>Té Quema Grasa</h3>
+                        <p>Bebida caliente de té con propiedades que ayudan a acelerar el metabolismo.</p>
+                    </div>
+                </div>
+                
+                <div class="breakfast-item">
+                    <div class="breakfast-image">
+                        <img src="https://i.postimg.cc/jjr2BmK1/herbal-aloe1.jpg" alt="Toma de aloe">
+                    </div>
+                    <div class="breakfast-details">
+                        <h3>Bebida de Aloe</h3>
+                        <p>Refrescante bebida de aloe que ayuda a la digestión y hidratación.</p>
+                    </div>
+                </div>
+                
+                <div class="breakfast-item">
+                    <div class="breakfast-image">
+                        <img src="https://i.postimg.cc/FsL9mpPX/protein-mix.webp" alt="Toma de ponche">
+                    </div>
+                    <div class="breakfast-details">
+                        <h3>Ponche de Frutas</h3>
+                        <p>Deliciosa bebida de ponche de frutas con vitaminas y minerales esenciales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Recetas -->
+        <section id="recipes" class="section">
+            <div class="section-title">
+                <h2>Recetas Saludables</h2>
+                <p>Ideas deliciosas y nutritivas para complementar tu plan alimenticio</p>
+            </div>
+            <div class="recipes-grid">
+                <div class="recipe-card">
+                    <div class="recipe-img">
+                        <i class="fas fa-mortar-pestle"></i>
+                    </div>
+                    <div class="recipe-info">
+                        <h3>Batido Verde Energético</h3>
+                        <p>Una combinación de espinacas, plátano, batido nutricional y leche de almendras.</p>
+                    </div>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-img">
+                        <i class="fas fa-cookie-bite"></i>
+                    </div>
+                    <div class="recipe-info">
+                        <h3>Galletas de Proteína</h3>
+                        <p>Deliciosas galletas caseras con alto contenido proteico y bajo en azúcar.</p>
+                    </div>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-img">
+                        <i class="fas fa-ice-cream"></i>
+                    </div>
+                    <div class="recipe-info">
+                        <h3>Helado Proteico</h3>
+                        <p>Postre saludable hecho con batido nutricional, yogur griego y frutos rojos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Contacto -->
+        <section id="contact" class="section contact-section">
+            <div class="section-title">
+                <h2>Contacto</h2>
+                <p>¿Tienes preguntas? Estamos aquí para ayudarte en tu camino hacia una mejor nutrición</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Av. 20 de Noviembre, Interior del mercado nuevo, local 26, Col. Centro, Tlaxcoapan Hidalgo</span>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>773 1520214</span>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-clock"></i>
+                        <span>Lunes a Sábado: 9:00 - 18:00</span>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/527731520214" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Envíanos un mensaje</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Tu email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" placeholder="Tu mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Actualizaciones -->
+        <section id="updates" class="section">
+            <div class="section-title">
+                <h2>Actualizaciones</h2>
+                <p>Mantente informado sobre nuevos productos, promociones y consejos de nutrición</p>
+            </div>
+            <div class="updates-grid">
+                <div class="update-card">
+                    <span class="update-date">15 Julio 2023</span>
+                    <h3>Nuevo Sabor Tropical</h3>
+                    <p>Estamos emocionados de anunciar nuestro nuevo sabor tropical para batidos nutricionales. ¡Ven y pruébalo!</p>
+                </div>
+                <div class="update-card">
+                    <span class="update-date">5 Julio 2023</span>
+                    <h3>Promoción de Verano</h3>
+                    <p>Aprovecha nuestro descuento especial en todos los productos de hidratación durante todo el mes de julio.</p>
+                </div>
+                <div class="update-card">
+                    <span class="update-date">28 Junio 2023</span>
+                    <h3>Taller de Nutrición</h3>
+                    <p>Únete a nuestro taller gratuito de nutrición este sábado. Aprenderás a planificar tus comidas de manera saludable.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Nutrivital Herbalife</h3>
+                    <p>Tu partner en nutrición y bienestar. Ofrecemos productos de calidad y asesoramiento personalizado para ayudarte a alcanzar tus objetivos.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <a href="#" data-section="home">Inicio</a>
+                    <a href="#" data-section="products">Productos</a>
+                    <a href="#" data-section="breakfasts">Desayunos</a>
+                    <a href="#" data-section="recipes">Recetas</a>
+                    <a href="#" data-section="contact">Contacto</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. 20 de Noviembre, Interior del mercado nuevo, local 26, Col. Centro, Tlaxcoapan Hidalgo</p>
+                    <p><i class="fab fa-whatsapp"></i> 773 1520214</p>
+                    <p><i class="fas fa-clock"></i> Lunes a Sábado: 9:00 - 18:00</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Nutrivital Herbalife. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Datos de productos
+        const products = [
+            {
+                id: 1,
+                title: "Thermojetics Concentrado de Hierbas - Té Instantáneo original 51 g",
+                description: "Mezcla de té instantáneo con hierbas seleccionadas que te ayudan a sentirte revitalizado. Ideal para disfrutar caliente o frío en cualquier momento del día.",
+                image: "https://i.postimg.cc/J0Sh12wS/pc-0963-mx.jpg",
+                category: "bebidas",
+                features: [
+                    "Mezcla de hierbas naturales",
+                    "Sabor original y refrescante",
+                    "Fácil de preparar",
+                    "Puede disfrutarse caliente o frío",
+                    "Presentación de 51 g"
+                ]
+            },
+            {
+                id: 2,
+                title: "Herbal Aloe Concentrado sabor mango 473 ml",
+                description: "Bebida concentrada de aloe vera con delicioso sabor a mango. Ayuda a la digestión y contribuye a tu hidratación diaria.",
+                image: "https://i.postimg.cc/Y2vYHcYn/pc-1065-mx.jpg",
+                category: "bebidas",
+                features: [
+                    "Concentrado de aloe vera",
+                    "Refrescante sabor a mango",
+                    "Ayuda a la digestión",
+                    "Contribuye a la hidratación",
+                    "Presentación de 473 ml"
+                ]
+            },
+            {
+                id: 3,
+                title: "Active Fiber Complex Polvo sabor manzana 210 g",
+                description: "Suplemento de fibra con sabor a manzana que ayuda a mantener una digestión saludable. Fácil de mezclar con tus bebidas favoritas.",
+                image: "https://www.herbalife.com/dmassets/market-reusable-assets/amer/mexico/images/canister/pc-2864-mx.png",
+                category: "suplementos",
+                features: [
+                    "Suplemento de fibra natural",
+                    "Agradable sabor a manzana",
+                    "Ayuda a la digestión",
+                    "Fácil de mezclar con bebidas",
+                    "Presentación de 210 g"
+                ]
+            },
+            {
+                id: 4,
+                title: "Prolessa® Duo 74,2 g",
+                description: "Suplemento avanzado que ayuda a controlar el apetito и contribuye a tus objetivos de gestión de peso. Fórmula de doble acción.",
+                image: "https://i.postimg.cc/CM4TSt08/pc-1095-mx.jpg",
+                category: "suplementos",
+                features: [
+                    "Fórmula de doble acción",
+                    "Ayuda a controlar el apetito",
+                    "Contribuye a la gestión de peso",
+                    "Fácil de consumir",
+                    "Presentación de 74,2 g"
+                ]
+            },
+            {
+                id: 5,
+                title: "Colágeno Herbalife",
+                description: "Suplemento de colágeno que ayuda a mantener la salud de la piel, cabello, uñas y articulaciones. Fácil de incorporar en tu rutina diaria.",
+                image: "https://i.postimg.cc/Vkp2KPqx/pc-0831-mx.jpg",
+                category: "suplementos",
+                features: [
+                    "Apoya la salud de la piel",
+                    "Fortalece cabello y uñas",
+                    "Contribuye a la salud articular",
+                    "Fácil de consumir",
+                    "Resultados visibles con uso continuo"
+                ]
+            },
+            {
+                id: 6,
+                title: "Café Instantáneo Herbalife",
+                description: "Café instantáneo de alta calidad con un sabor rico y aroma intenso. Perfecto para comenzar tu día con energía.",
+                image: "https://i.postimg.cc/qqFGp4v0/pc-494k-mx.jpg",
+                category: "bebidas",
+                features: [
+                    "Café instantáneo de alta calidad",
+                    "Sabor rico y aroma intenso",
+                    "Perfecto para el desayuno",
+                    "Fácil de preparar",
+                    "Presentación práctica"
+                ]
+            },
+            {
+                id: 7,
+                title: "Ponche de Frutas Herbalife",
+                description: "Refrescante ponche de frutas con vitaminas y minerales esenciales. Ideal para hidratarte y nutrir tu cuerpo de forma deliciosa.",
+                image: "https://i.postimg.cc/054GM591/pc-3119-mx.jpg",
+                category: "bebidas",
+                features: [
+                    "Mezcla de frutas naturales",
+                    "Rico en vitamins y minerales",
+                    "Sabor refrescante",
+                    "Ayuda a la hidratación",
+                    "Preparación fácil y rápida"
+                ]
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cargar productos en la página
+            const productsContainer = document.getElementById('products-container');
+            
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.setAttribute('data-category', product.category);
+                
+                productCard.innerHTML = `
+                    <div class="product-img">
+                        <img src="${product.image}" alt="${product.title}">
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.title}</h3>
+                        <p class="description">${product.description}</p>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Consultar</button>
+                            <a href="#" class="view-details" data-product-id="${product.id}">Ver detalles</a>
+                        </div>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productCard);
+            });
+
+            // Navegación entre secciones - CÓDIGO CORREGIDO
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+            
+            // Función para cambiar de sección
+            function changeSection(sectionId) {
+                // Remover clase active de todos los links
+                navLinks.forEach(link => link.classList.remove('active'));
+                // Agregar clase active al link correspondiente
+                document.querySelector(`.nav-link[data-section="${sectionId}"]`).classList.add('active');
+                
+                // Ocultar todas las secciones
+                sections.forEach(section => section.classList.remove('active'));
+                
+                // Mostrar la sección correspondiente
+                document.getElementById(sectionId).classList.add('active');
+                
+                // Scroll suave hacia la sección
+                if (sectionId === 'home') {
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                } else {
+                    document.getElementById(sectionId).scrollIntoView({behavior: 'smooth'});
+                }
+            }
+            
+            // Event listeners para los links de navegación
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('data-section');
+                    changeSection(sectionId);
+                });
+            });
+            
+            // Event listener para el botón "Ver Productos" en la portada
+            document.getElementById('view-products-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                changeSection('products');
+            });
+            
+            // Event listeners para los enlaces en el footer
+            document.querySelectorAll('.footer-section a[data-section]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('data-section');
+                    changeSection(sectionId);
+                });
+            });
+
+            // Formulario de contacto
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
